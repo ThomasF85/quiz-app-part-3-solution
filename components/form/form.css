@@ -1,0 +1,20 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 25em;
+  margin: 10em auto 0 auto;
+  font-size: 1rem;
+}
+
+.form__counter {
+  margin-bottom: 1.5em;
+  align-self: flex-end;
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+.form__submit-button {
+  align-self: center;
+  padding: 0.3em;
+  margin-top: 1.5em;
+}
