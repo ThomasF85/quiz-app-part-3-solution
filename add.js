@@ -20,6 +20,8 @@ form.addEventListener("submit", (event) => {
   const cards = loadCards();
   cards.push(newCard);
   saveCards(cards);
+  alert("New Card created!");
+  event.target.reset();
 });
 
 const question = document.querySelector('[data-js="question"]');
