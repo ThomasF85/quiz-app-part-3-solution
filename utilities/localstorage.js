@@ -3,7 +3,7 @@ function loadCards() {
   if (cards === null) {
     return [];
   }
-  return JSON.parse(localStorage.getItem("cards"));
+  return JSON.parse(cards);
 }
 
 function saveCards(cards) {

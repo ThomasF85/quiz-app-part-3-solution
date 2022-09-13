@@ -1,5 +1,5 @@
 import createCard from "./components/card/card.js";
-import { loadCards } from "./components/localstorage.js";
+import { loadCards } from "./utilities/localstorage.js";
 
 const cardContainer = document.querySelector('[data-js="card-list"]');
 
