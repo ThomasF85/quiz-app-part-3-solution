@@ -1,4 +1,5 @@
 import createCard from "./components/card/card.js";
+import { loadCards, saveCards } from "./components/localstorage.js";
 
 const form = document.querySelector('[data-js="add-card-form"]');
 const cardList = document.querySelector('[data-js="card-list"]');
@@ -9,8 +10,16 @@ form.addEventListener("submit", (event) => {
   const formData = new FormData(event.target);
   const data = Object.fromEntries(formData);
 
-  const newCard = createCard(data.question, data.answer, data.tag);
-  cardList.append(newCard);
+  const newCard = {
+    id: Math.random() + "",
+    question: data.question,
+    answer: data.answer,
+    tag: data.tag,
+  };
+
+  const cards = loadCards();
+  cards.push(newCard);
+  saveCards(cards);
 });
 
 const question = document.querySelector('[data-js="question"]');
