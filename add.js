@@ -53,15 +53,15 @@ function createCard(question, answer, tag) {
   card.querySelector("li.card__tag-list-item").textContent = `#${tag}`;
 
   const answerButton = card.querySelector('[data-js="answer-button"]');
-  const answer = card.querySelector('[data-js="card-answer"]');
+  const answerElement = card.querySelector('[data-js="card-answer"]');
   const bookmarkButton = card.querySelector('[data-js="bookmark-button"]');
 
   answerButton.addEventListener("click", () => {
-    if (answer.classList.contains("card__answer--active")) {
-      answer.classList.remove("card__answer--active");
+    if (answerElement.classList.contains("card__answer--active")) {
+      answerElement.classList.remove("card__answer--active");
       answerButton.textContent = "Show answer";
     } else {
-      answer.classList.add("card__answer--active");
+      answerElement.classList.add("card__answer--active");
       answerButton.textContent = "Hide answer";
     }
   });
