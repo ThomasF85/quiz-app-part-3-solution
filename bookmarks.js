@@ -9,14 +9,9 @@ const cards = [
     tag: "Tag 1",
   },
   {
-    question: "Question 2",
-    answer: "Answer 2",
-    tag: "Tag 2",
-  },
-  {
-    question: "Question 3",
-    answer: "Answer 3",
-    tag: "Tag 3",
+    question: "Question 1b",
+    answer: "Answer 1b",
+    tag: "Tag 1b",
   },
 ];
 

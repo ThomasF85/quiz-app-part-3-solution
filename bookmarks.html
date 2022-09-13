@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz-App</title>
+    <script src="bookmarks.js" type="module" defer></script>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -12,42 +13,7 @@
       <h1 class="header__title">Bookmarks</h1>
     </header>
     <main>
-      <ul class="card-list">
-        <li class="card-list__item">
-          <article class="card">
-            <h2 class="card__question">
-              Daniel Radcliffe became a global star in the film industry due to
-              his performance in which film franchise?
-            </h2>
-            <button class="card__button-answer" type="button">
-              Show answer
-            </button>
-            <p class="card__answer card__answer--active">Harry Potter</p>
-            <ul class="card__tag-list">
-              <li class="card__tag-list-item">#danielradcliffe</li>
-              <li class="card__tag-list-item">#hewhomustnotbenamed</li>
-              <li class="card__tag-list-item">#abracadabra</li>
-            </ul>
-            <div class="card__button-bookmark">
-              <button
-                class="bookmark bookmark--active"
-                aria-label="bookmark"
-                type="button"
-              >
-                <svg
-                  class="bookmark__icon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewbox="0 0 24 24"
-                >
-                  <path
-                    d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"
-                  />
-                </svg>
-              </button>
-            </div>
-          </article>
-        </li>
-      </ul>
+      <ul class="card-list" data-js="card-list"></ul>
     </main>
 
     <nav class="navigation">
