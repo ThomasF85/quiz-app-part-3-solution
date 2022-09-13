@@ -7,10 +7,10 @@ form.addEventListener("submit", (event) => {
   const formData = new FormData(event.target);
   const data = Object.fromEntries(formData);
 
-  createCard(data);
+  createCard(data.question, data.answer, data.tag);
 });
 
-function createCard(cardData) {
+function createCard(question, answer, tag) {
   const card = document.createElement("li");
   card.classList.add("card-list__item");
 
@@ -48,16 +48,10 @@ function createCard(cardData) {
   </div>
 </article>`;
 
-  card.querySelector('[data-js="card-question"]').textContent =
-    cardData.question;
-  card.querySelector('[data-js="card-answer"]').textContent = cardData.answer;
-  card.querySelector("li.card__tag-list-item").textContent = `#${cardData.tag}`;
-  cardList.append(card);
+  card.querySelector('[data-js="card-question"]').textContent = question;
+  card.querySelector('[data-js="card-answer"]').textContent = answer;
+  card.querySelector("li.card__tag-list-item").textContent = `#${tag}`;
 
-  // The following code is optional and adds functionality to the card.
-  // It is duplicated code from index.js. We will learn in a future session
-  // how to use JavaScript from a different file, so we don't have to duplicate
-  // code here.
   const answerButton = card.querySelector('[data-js="answer-button"]');
   const answer = card.querySelector('[data-js="card-answer"]');
   const bookmarkButton = card.querySelector('[data-js="bookmark-button"]');
@@ -75,6 +69,8 @@ function createCard(cardData) {
   bookmarkButton.addEventListener("click", () => {
     bookmarkButton.classList.toggle("bookmark--active");
   });
+
+  cardList.append(card);
 }
 
 const question = document.querySelector('[data-js="question"]');
