@@ -1,11 +1,35 @@
 import createCard from "./components/card/card.js";
-import { loadCards } from "./utilities/localstorage.js";
+import { loadCards, saveCards } from "./utilities/localstorage.js";
 
 const cardContainer = document.querySelector('[data-js="card-list"]');
 
-const cards = loadCards();
+let cards = loadCards();
 
-cards.forEach((card) => {
-  const cardElement = createCard(card.question, card.answer, card.tag);
-  cardContainer.append(cardElement);
-});
+function toggleBookmark(id) {
+  const toggledCardArray = cards.map((card) =>
+    card.id === id ? { ...card, bookmarked: !card.bookmarked } : card
+  );
+  cards = toggledCardArray;
+  saveCards(toggledCardArray);
+}
+
+function reloadAllCards() {
+  cardContainer.innerHTML = "";
+  cards
+    .filter((card) => card.bookmarked)
+    .forEach((card) => {
+      const cardElement = createCard(
+        card.question,
+        card.answer,
+        card.tag,
+        card.bookmarked,
+        () => {
+          toggleBookmark(card.id);
+          reloadAllCards();
+        }
+      );
+      cardContainer.append(cardElement);
+    });
+}
+
+reloadAllCards();

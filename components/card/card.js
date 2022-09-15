@@ -1,4 +1,4 @@
-function createCard(question, answer, tag) {
+function createCard(question, answer, tag, bookmarked, bookmarkCallback) {
   const card = document.createElement("li");
   card.classList.add("card-list__item");
 
@@ -18,7 +18,7 @@ function createCard(question, answer, tag) {
     </ul>
     <div class="card__button-bookmark">
       <button
-        class="bookmark"
+        class="bookmark ${bookmarked ? "bookmark--active" : ""}"
         aria-label="bookmark"
         type="button"
         data-js="bookmark-button"
@@ -56,6 +56,7 @@ function createCard(question, answer, tag) {
 
   bookmarkButton.addEventListener("click", () => {
     bookmarkButton.classList.toggle("bookmark--active");
+    bookmarkCallback();
   });
 
   return card;

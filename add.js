@@ -15,6 +15,7 @@ form.addEventListener("submit", (event) => {
     question: data.question,
     answer: data.answer,
     tag: data.tag,
+    bookmarked: false,
   };
 
   const cards = loadCards();
