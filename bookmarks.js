@@ -13,7 +13,7 @@ function toggleBookmark(id) {
   saveCards(toggledCardArray);
 }
 
-function reloadAllCards() {
+function renderCards() {
   cardContainer.innerHTML = "";
   cards
     .filter((card) => card.bookmarked)
@@ -25,11 +25,11 @@ function reloadAllCards() {
         card.bookmarked,
         () => {
           toggleBookmark(card.id);
-          reloadAllCards();
+          renderCards();
         }
       );
       cardContainer.append(cardElement);
     });
 }
 
-reloadAllCards();
+renderCards();
